@@ -2,6 +2,7 @@
 
 namespace Utopia\HTTP\Adapter\Swoole;
 
+use Exception;
 use Utopia\HTTP\Request as UtopiaRequest;
 use Swoole\Http\Request as SwooleRequest;
 
@@ -335,5 +336,17 @@ class Request extends UtopiaRequest
     protected function generateHeaders(): array
     {
         return $this->swoole->header;
+    }
+
+    /**
+     * Get Request Size
+     *
+     * Returns request size in bytes
+     *
+     * @return int
+     */
+    public function getSize(): int
+    {
+        throw new Exception('not implemented');
     }
 }
